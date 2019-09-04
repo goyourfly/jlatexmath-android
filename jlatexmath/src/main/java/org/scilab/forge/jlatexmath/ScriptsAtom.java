@@ -226,4 +226,12 @@ public class ScriptsAtom extends Atom {
     public int getRightType() {
         return base.getRightType();
     }
+
+    public Atom getSubscript() {
+        return subscript;
+    }
+
+    public Atom getSuperscript() {
+        return superscript;
+    }
 }

@@ -1,5 +1,8 @@
 package ru.noties.jlatexmath.awt;
 
+import android.graphics.Paint;
+import android.support.annotation.NonNull;
+
 import ru.noties.jlatexmath.awt.font.FontRenderContext;
 import ru.noties.jlatexmath.awt.geom.AffineTransform;
 import ru.noties.jlatexmath.awt.geom.Line2D;
@@ -55,4 +58,10 @@ public interface Graphics2D extends Graphics {
     void setRenderingHint(RenderingHints.Key keyAntialiasing, Object valueAntialiasOn);
 
     void setRenderingHints(RenderingHints oldHints);
+
+    int save();
+
+    void restore();
+
+    void drawText(@NonNull String text, float x, float y, @NonNull Paint paint);
 }

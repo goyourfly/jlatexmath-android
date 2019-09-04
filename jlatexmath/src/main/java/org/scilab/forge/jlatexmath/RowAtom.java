@@ -49,7 +49,9 @@
 package org.scilab.forge.jlatexmath;
 
 import java.util.BitSet;
+import java.util.Collections;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.ListIterator;
 
 import org.scilab.forge.jlatexmath.dynamic.DynamicAtom;
@@ -272,5 +274,9 @@ public class RowAtom extends Atom implements Row {
         } else {
             return (elements.get(elements.size() - 1)).getRightType();
         }
+    }
+
+    public List<Atom> getList() {
+        return Collections.unmodifiableList(elements);
     }
 }

@@ -50,7 +50,14 @@ public class JLatexMathDrawable extends Drawable {
 
     JLatexMathDrawable(@NonNull Builder builder) {
 
-        this.icon = new TeXFormula(builder.latex)
+        TeXFormula formula;
+        if (builder.isPartial) {
+            formula = TeXFormula.getPartialTeXFormula(builder.latex);
+        } else {
+            formula = new TeXFormula(builder.latex);
+        }
+
+        this.icon = formula
                 .new TeXIconBuilder()
                 .setFGColor(new Color(builder.color))
                 .setSize(builder.textSize)
@@ -147,6 +154,10 @@ public class JLatexMathDrawable extends Drawable {
         return iconHeight;
     }
 
+    public TeXIcon getIcon() {
+        return icon;
+    }
+
     public static class Builder {
 
         private final String latex;
@@ -157,6 +168,8 @@ public class JLatexMathDrawable extends Drawable {
         private Drawable background;
         private Insets insets;
         private boolean fitCanvas = true;
+
+        private boolean isPartial = false;
 
         public Builder(@NonNull String latex) {
             this.latex = latex;
@@ -207,6 +220,12 @@ public class JLatexMathDrawable extends Drawable {
         @NonNull
         public Builder fitCanvas(boolean fitCanvas) {
             this.fitCanvas = fitCanvas;
+            return this;
+        }
+
+        @NonNull
+        public Builder partial(boolean value) {
+            this.isPartial = value;
             return this;
         }
 

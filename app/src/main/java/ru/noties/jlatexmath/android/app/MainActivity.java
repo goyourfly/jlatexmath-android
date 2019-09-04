@@ -4,7 +4,10 @@ import android.app.Activity;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.View;
+
+import org.scilab.forge.jlatexmath.Box;
 
 import ru.noties.debug.AndroidLogDebugOutput;
 import ru.noties.debug.Debug;
@@ -32,7 +35,7 @@ public class MainActivity extends Activity {
 //        setContentView(R.layout.activity_main);
 
         String latex = "\\begin{array}{cc}";
-        latex += "\\fbox{\\text{A framed box with \\textdbend}}&\\shadowbox{\\text{A shadowed box}}\\cr";
+        latex += "\\fbox{\\text{您好A framed box with \\textdbend}}&\\shadowbox{\\text{A shadowed box}}\\cr";
         latex += "\\doublebox{\\text{A double framed box}}&\\ovalbox{\\text{An oval framed box}}\\cr";
         latex += "\\end{array}";
 
@@ -115,7 +118,41 @@ public class MainActivity extends Activity {
 //        final LatexMathView latexMathView = findViewById(R.id.latex_math_view);
 //        latexMathView.setLatexMath(latex);
 
-        jLatexMathView.setLatex(latex);
+        latex = "${CO _{2} +H _{2} O \\mathrel{\\mathop{\\kern{0pt}\\longrightarrow}\\limits_{叶绿素}^{日光}}}$";
+        latex = "\\rm 2H_{2}O \\mathop{\\substack{= \\!= \\!= \\!= \\!= \\!= }}^{电解}2H_{2}\\uparrow + O_{2}\\uparrow ";
+        latex = "解：∵${A\\cup B= \\{1,\\, 2\\}}$，\\\\则${A}$，${B}$均为${\\{1,\\, 2\\}}$的子集，\\\\即${A}$，${B\\in \\{\\varnothing ,\\, \\{1\\},\\, \\{2\\},\\, \\{1,\\, 2\\}\\}}$，\\\\当${A= \\varnothing }$时，${B= \\{1,\\, 2\\}}$，\\\\当${A= \\{1\\}}$时，${B= \\{1,\\, 2\\}}$或${B= \\{2\\}}$，\\\\当${A= \\{2\\}}$时，${B= \\{1,\\, 2\\}}$或${B= \\{1\\}}$，\\\\${A= \\{1,\\, 2\\}}$时，${B= \\{1,\\, 2\\}}$，或${B= \\{1\\}}$，或${B= \\{2\\}}$，或${B= \\varnothing }$，\\\\共${9}$种情况，\\\\故选：${D}$";
+
+        latex = "";
+        latex = "\\bold";
+        latex = "\\bolda";
+//        latex = "\\bold(";
+        latex = "^";
+        latex = "^a";
+        latex = "{";
+        latex = "{}";
+        latex = "}";
+//        latex = "{abc}";
+
+        latex = "${CO _{2} +H _{2} O \\mathrel{\\mathop{\\kern{0pt}\\longrightarrow}\\limits_{叶绿素}^{日光}}}$";
+
+        Log.w("AA", "latex = " + latex);
+
+        Exception exception = null;
+        try {
+            jLatexMathView.setLatex(latex, true);
+        } catch (Exception e) {
+            exception = e;
+        }
+
+
+        if (exception != null) {
+            Log.w("AA", exception.toString());
+        } else {
+            JLatexMathDrawable d = jLatexMathView.getDrawable();
+            Box box = d.getIcon().getBox();
+            Log.w("AA", "box = " + box.getClass().getName());
+            Log.w("AA", "isEmpty = " + box.isEmpty());
+        }
 
         if (true) {
             final String s = "$$here is $ some$$\n\n$$\\beginarray{}\n\\whatever {}1,2_+$$";

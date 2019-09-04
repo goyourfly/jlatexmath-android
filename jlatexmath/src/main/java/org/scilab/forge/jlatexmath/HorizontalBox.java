@@ -186,4 +186,13 @@ public class HorizontalBox extends Box {
 
         return new HorizontalBox[] {hb1, hb2};
     }
+
+    @Override
+    public boolean isEmpty() {
+        if (children.isEmpty()) {
+            return true;
+        }
+
+        return super.isEmpty();
+    }
 }

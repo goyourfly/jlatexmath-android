@@ -102,4 +102,9 @@ public class GeoGebraLogoBox extends Box {
     public int getLastFontId() {
         return 0;
     }
+
+    @Override
+    public boolean isEmpty() {
+        return false;
+    }
 }

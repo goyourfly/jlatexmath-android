@@ -74,4 +74,13 @@ public class ReflectBox extends Box {
     public int getLastFontId() {
         return box.getLastFontId();
     }
+
+    @Override
+    public boolean isEmpty() {
+        if (box == null) {
+            return true;
+        }
+
+        return box.isEmpty();
+    }
 }

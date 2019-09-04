@@ -3,6 +3,7 @@ package ru.noties.jlatexmath.awt;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.RectF;
+import android.support.annotation.NonNull;
 
 import ru.noties.jlatexmath.awt.font.FontRenderContext;
 import ru.noties.jlatexmath.awt.geom.AffineTransform;
@@ -212,5 +213,20 @@ public class AndroidGraphics2D implements Graphics2D {
     @Override
     public void setRenderingHints(RenderingHints oldHints) {
 
+    }
+
+    @Override
+    public int save() {
+        return canvas.save();
+    }
+
+    @Override
+    public void restore() {
+        canvas.restore();
+    }
+
+    @Override
+    public void drawText(@NonNull String text, float x, float y, @NonNull Paint paint) {
+        canvas.drawText(text, x, y, paint);
     }
 }

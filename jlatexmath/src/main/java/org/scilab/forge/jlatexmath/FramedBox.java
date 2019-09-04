@@ -104,4 +104,9 @@ public class FramedBox extends Box {
     public int getLastFontId() {
         return box.getLastFontId();
     }
+
+    @Override
+    public boolean isEmpty() {
+        return false;
+    }
 }

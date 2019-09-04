@@ -137,4 +137,13 @@ public class OverUnderBox extends Box {
     public int getLastFontId() {
         return base.getLastFontId();
     }
+
+    @Override
+    public boolean isEmpty() {
+        boolean a = (base == null)? true: base.isEmpty();
+        boolean b = (del == null)? true: del.isEmpty();
+        boolean c = (script == null)? true: script.isEmpty();
+
+        return a && b && c;
+    }
 }

@@ -45,23 +45,24 @@
 
 package org.scilab.forge.jlatexmath;
 
+import android.text.TextUtils;
+
 import ru.noties.jlatexmath.awt.Font;
 import ru.noties.jlatexmath.awt.Graphics2D;
 import ru.noties.jlatexmath.awt.font.TextLayout;
 import ru.noties.jlatexmath.awt.geom.Rectangle2D;
-import ru.noties.jlatexmath.awt.image.BufferedImage;
 
 /**
  * A box representing a scaled box.
  */
 public class JavaFontRenderingBox extends Box {
 
-    private static final Graphics2D TEMPGRAPHIC = new BufferedImage(1, 1, BufferedImage.TYPE_INT_ARGB).createGraphics();
+//	private static final Graphics2D TEMPGRAPHIC = new BufferedImage(1, 1, BufferedImage.TYPE_INT_ARGB).createGraphics();
 
-    private static Font font = new Font("Serif", Font.PLAIN, 10);
+	private static Font font = new Font("Serif", Font.PLAIN, 10);
 
-    private TextLayout text;
-    private float size;
+	private TextLayout text;
+	private float size;
 //    private static TextAttribute KERNING;
 //    private static Integer KERNING_ON;
 //    private static TextAttribute LIGATURES;
@@ -76,10 +77,10 @@ public class JavaFontRenderingBox extends Box {
 //        } catch (Exception e) { }
 //    }
 
-    public JavaFontRenderingBox(String str, int type, float size, Font f, boolean kerning) {
-        this.size = size;
+	public JavaFontRenderingBox(String str, int type, float size, Font f, boolean kerning) {
+		this.size = size;
 
-        // todo: think of kerning (how, why and what it is)
+		// todo: think of kerning (how, why and what it is)
 //        if (kerning && KERNING != null) {
 //            Map<TextAttribute, Object> map = new Hashtable<TextAttribute, Object>();
 //            map.put(KERNING, KERNING_ON);
@@ -87,31 +88,36 @@ public class JavaFontRenderingBox extends Box {
 //            f = f.deriveFont(map);
 //        }
 
-        this.text = new TextLayout(str, f.deriveFont(type), TEMPGRAPHIC.getFontRenderContext());
-        Rectangle2D rect = text.getBounds();
-        this.height = (float) (-rect.getY() * size / 10);
-        this.depth = (float) (rect.getHeight() * size / 10) - this.height;
-        this.width = (float) ((rect.getWidth() + rect.getX() + 0.4f) * size / 10);
-    }
+		this.text = new TextLayout(str, f.deriveFont(type));
+		Rectangle2D rect = text.getBounds();
+		this.height = (float) (-rect.getY() * size / 10);
+		this.depth = (float) (rect.getHeight() * size / 10) - this.height;
+		this.width = (float) ((rect.getWidth() + rect.getX() + 0.4f) * size / 10);
+	}
 
-    public JavaFontRenderingBox(String str, int type, float size) {
-        this(str, type, size, font, true);
-    }
+	public JavaFontRenderingBox(String str, int type, float size) {
+		this(str, type, size, font, true);
+	}
 
-    public static void setFont(String name) {
-        font = new Font(name, Font.PLAIN, 10);
-    }
+	public static void setFont(String name) {
+		font = new Font(name, Font.PLAIN, 10);
+	}
 
-    public void draw(Graphics2D g2, float x, float y) {
-        drawDebug(g2, x, y);
-        g2.translate(x, y);
-        g2.scale(0.1 * size, 0.1 * size);
-        text.draw(g2, 0, 0);
-        g2.scale(10 / size, 10 / size);
-        g2.translate(-x, -y);
-    }
+	public void draw(Graphics2D g2, float x, float y) {
+		drawDebug(g2, x, y);
+		g2.translate(x, y);
+		g2.scale(0.1 * size, 0.1 * size);
+		text.draw(g2, 0, 0);
+		g2.scale(10 / size, 10 / size);
+		g2.translate(-x, -y);
+	}
 
-    public int getLastFontId() {
-        return 0;
-    }
+	public int getLastFontId() {
+		return 0;
+	}
+
+	@Override
+	public boolean isEmpty() {
+		return false;
+	}
 }

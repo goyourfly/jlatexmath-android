@@ -133,4 +133,13 @@ class VerticalBox extends Box {
 
         return fontId;
     }
+
+    @Override
+    public boolean isEmpty() {
+        if (children.isEmpty()) {
+            return true;
+        }
+
+        return super.isEmpty();
+    }
 }

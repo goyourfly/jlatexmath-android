@@ -53,7 +53,10 @@ import ru.noties.jlatexmath.awt.Color;
 import ru.noties.jlatexmath.awt.Graphics2D;
 import ru.noties.jlatexmath.awt.Stroke;
 import ru.noties.jlatexmath.awt.geom.Rectangle2D;
+
+import java.util.Collections;
 import java.util.LinkedList;
+import java.util.List;
 
 /**
  * An abstract graphical representation of a formula, that can be painted. All characters, font
@@ -181,6 +184,24 @@ public abstract class Box {
 
     public Box getElderParent() {
         return elderParent;
+    }
+
+    public List<Box> getChildren() {
+        return Collections.unmodifiableList(children);
+    }
+
+    public boolean isEmpty() {
+        if (children.isEmpty()) {
+            return false;
+        } else {
+            for (Box x : children) {
+                if (!x.isEmpty()) {
+                    return false;
+                }
+            }
+
+            return true;
+        }
     }
 
     /**

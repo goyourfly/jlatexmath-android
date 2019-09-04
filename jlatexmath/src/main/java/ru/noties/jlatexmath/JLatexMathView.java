@@ -130,12 +130,17 @@ public class JLatexMathView extends View {
         return this;
     }
 
-    public void setLatex(@NonNull String latex) {
+    public void setLatex(@NonNull String latex) throws RuntimeException{
+        this.setLatex(latex, false);
+    }
+
+    public void setLatex(@NonNull String latex, boolean isPartial) throws RuntimeException {
         final JLatexMathDrawable drawable = JLatexMathDrawable.builder(latex)
                 .textSize(textSize)
                 .color(textColor)
                 .background(background)
                 .fitCanvas(false)
+                .partial(isPartial)
                 .build();
         setLatexDrawable(drawable);
     }
@@ -148,6 +153,10 @@ public class JLatexMathView extends View {
     public void clear() {
         this.drawable = null;
         requestLayout();
+    }
+
+    public JLatexMathDrawable getDrawable() {
+        return drawable;
     }
 
     @Override
@@ -174,6 +183,9 @@ public class JLatexMathView extends View {
         //  if it's exact -> use it
         //  if it's not -> use smallest value of AT_MOST, (drawable.intrinsic + padding)
 
+        final int minWidth = this.getMinimumWidth();
+        final int minHeight = this.getMinimumHeight();
+
         int width;
         int height;
 
@@ -184,6 +196,8 @@ public class JLatexMathView extends View {
             width = widthSize > 0
                     ? Math.min(widthSize, wrap)
                     : wrap;
+
+            width = (width < minWidth)? minWidth: width;
         }
 
         if (MeasureSpec.EXACTLY == heightMode) {
@@ -193,6 +207,8 @@ public class JLatexMathView extends View {
             height = heightSize > 0
                     ? Math.min(heightSize, wrap)
                     : wrap;
+
+            height = (height < minHeight)? minHeight: height;
         }
 
         final int canvasWidth = width - paddingLeft - getPaddingRight();
@@ -216,10 +232,14 @@ public class JLatexMathView extends View {
 
         if (MeasureSpec.EXACTLY != widthMode) {
             width = displayWidth + paddingLeft + getPaddingRight();
+
+            width = (width < minWidth)? minWidth: width;
         }
 
         if (MeasureSpec.EXACTLY != heightMode) {
             height = displayHeight + paddingTop + getPaddingBottom();
+
+            height = (height < minHeight)? minHeight: height;
         }
 
         // let's see if we should align our formula

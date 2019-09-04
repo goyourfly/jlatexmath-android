@@ -26,13 +26,13 @@ public class Font {
         return new Font(typeface, 0, size);
     }
 
-//    private final String name;
+    //    private final String name;
     private final Typeface typeface;
     private int style;
     private float size;
 
     public Font(String name, int style, int size) {
-        throw new RuntimeException("TODO");
+        this(Typeface.DEFAULT, style, size);
     }
 
 //    @NonNull

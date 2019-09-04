@@ -98,4 +98,9 @@ public class HorizontalRule extends Box {
     public int getLastFontId() {
         return TeXFont.NO_FONT;
     }
+
+    @Override
+    public boolean isEmpty() {
+        return false;
+    }
 }
