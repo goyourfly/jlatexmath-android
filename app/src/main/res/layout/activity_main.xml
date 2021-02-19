@@ -3,25 +3,21 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="#ccc"
     android:orientation="vertical">
 
 
     <FrameLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:background="#ff0000">
+        android:layout_gravity="center">
 
         <ru.noties.jlatexmath.JLatexMathView
             android:id="@+id/j_latex_math_view"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
+            android:background="#EFEFEF"
             android:layout_height="wrap_content"
-            android:minWidth="360dp"
-            android:minHeight="12dp"
-            android:padding="16dip"
             app:jlmv_alignHorizontal="center"
             app:jlmv_alignVertical="center"
-            app:jlmv_textSize="18sp" />
+            app:jlmv_textSize="14sp" />
     </FrameLayout>
 </FrameLayout>

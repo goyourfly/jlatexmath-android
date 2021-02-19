@@ -118,23 +118,24 @@ public class MainActivity extends Activity {
 //        final LatexMathView latexMathView = findViewById(R.id.latex_math_view);
 //        latexMathView.setLatexMath(latex);
 
-        latex = "${CO _{2} +H _{2} O \\mathrel{\\mathop{\\kern{0pt}\\longrightarrow}\\limits_{叶绿素}^{日光}}}$";
-        latex = "\\rm 2H_{2}O \\mathop{\\substack{= \\!= \\!= \\!= \\!= \\!= }}^{电解}2H_{2}\\uparrow + O_{2}\\uparrow ";
-        latex = "解：∵${A\\cup B= \\{1,\\, 2\\}}$，\\\\则${A}$，${B}$均为${\\{1,\\, 2\\}}$的子集，\\\\即${A}$，${B\\in \\{\\varnothing ,\\, \\{1\\},\\, \\{2\\},\\, \\{1,\\, 2\\}\\}}$，\\\\当${A= \\varnothing }$时，${B= \\{1,\\, 2\\}}$，\\\\当${A= \\{1\\}}$时，${B= \\{1,\\, 2\\}}$或${B= \\{2\\}}$，\\\\当${A= \\{2\\}}$时，${B= \\{1,\\, 2\\}}$或${B= \\{1\\}}$，\\\\${A= \\{1,\\, 2\\}}$时，${B= \\{1,\\, 2\\}}$，或${B= \\{1\\}}$，或${B= \\{2\\}}$，或${B= \\varnothing }$，\\\\共${9}$种情况，\\\\故选：${D}$";
+//        latex = "${CO _{2} +H _{2} O \\mathrel{\\mathop{\\kern{0pt}\\longrightarrow}\\limits_{叶绿素}^{日光}}}$";
+//        latex = "\\rm 2H_{2}O \\mathop{\\substack{= \\!= \\!= \\!= \\!= \\!= }}^{电解}2H_{2}\\uparrow + O_{2}\\uparrow ";
+//        latex = "解：∵${A\\cup B= \\{1,\\, 2\\}}$，\\\\则${A}$，${B}$均为${\\{1,\\, 2\\}}$的子集，\\\\即${A}$，${B\\in \\{\\varnothing ,\\, \\{1\\},\\, \\{2\\},\\, \\{1,\\, 2\\}\\}}$，\\\\当${A= \\varnothing }$时，${B= \\{1,\\, 2\\}}$，\\\\当${A= \\{1\\}}$时，${B= \\{1,\\, 2\\}}$或${B= \\{2\\}}$，\\\\当${A= \\{2\\}}$时，${B= \\{1,\\, 2\\}}$或${B= \\{1\\}}$，\\\\${A= \\{1,\\, 2\\}}$时，${B= \\{1,\\, 2\\}}$，或${B= \\{1\\}}$，或${B= \\{2\\}}$，或${B= \\varnothing }$，\\\\共${9}$种情况，\\\\故选：${D}$";
+//
+//        latex = "";
+//        latex = "\\bold";
+//        latex = "\\bolda";
+////        latex = "\\bold(";
+//        latex = "^";
+//        latex = "^a";
+//        latex = "{";
+//        latex = "{}";
+//        latex = "}";
+////        latex = "{abc}";
+//
+//        latex = "${CO _{2} +H _{2} O \\mathrel{\\mathop{\\kern{0pt}\\longrightarrow}\\limits_{叶绿素}^{日光}}}$";
 
-        latex = "";
-        latex = "\\bold";
-        latex = "\\bolda";
-//        latex = "\\bold(";
-        latex = "^";
-        latex = "^a";
-        latex = "{";
-        latex = "{}";
-        latex = "}";
-//        latex = "{abc}";
-
-        latex = "${CO _{2} +H _{2} O \\mathrel{\\mathop{\\kern{0pt}\\longrightarrow}\\limits_{叶绿素}^{日光}}}$";
-
+        latex = "1+1=2";
         Log.w("AA", "latex = " + latex);
 
         Exception exception = null;
