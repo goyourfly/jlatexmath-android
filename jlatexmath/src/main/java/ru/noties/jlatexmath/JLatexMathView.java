@@ -191,6 +191,8 @@ public class JLatexMathView extends View {
 
         if (MeasureSpec.EXACTLY == widthMode) {
             width = widthSize;
+        } else if(MeasureSpec.UNSPECIFIED == widthMode){
+            width = drawableWidth + paddingLeft + getPaddingRight();
         } else {
             final int wrap = drawableWidth + paddingLeft + getPaddingRight();
             width = widthSize > 0
@@ -202,6 +204,8 @@ public class JLatexMathView extends View {
 
         if (MeasureSpec.EXACTLY == heightMode) {
             height = heightSize;
+        }  else if(MeasureSpec.UNSPECIFIED == heightMode){
+            height = drawableHeight + paddingTop + getPaddingBottom();
         } else {
             final int wrap = drawableHeight + paddingTop + getPaddingBottom();
             height = heightSize > 0
