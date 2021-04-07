@@ -132,7 +132,13 @@ public class MainActivity extends Activity {
 //        latexList.add("\\left. \\begin{array} { l } { \\text { Select the equivalent expression. } } \\\\ { ( a ^ { - 2 } \\cdot 8 ^ { 7 } ) ^ { 2 } = ? } \\end{array} \\right.");
 //
 //        latexList.add("macros from amsmath and symbols from amssymb and stmaryrd");
-        latexList.add("\\text{macros from amsmath and symbols from amssymb and stmaryrd, fkldjskajfkd safdksajfkl dskajfk dlsa fldksa fdsakf dlsaf  }");
+//        latexList.add("\\text{macros from amsmath and symbols from amssymb and stmaryrd, fkldjskajfkd safdksajfkl dskajfk dlsa fldksa fdsakf dlsaf  }");
+//        latexList.add("x=\\left\\{\\begin{array}{c}\\frac{\\pi}{6} + 2\\pi k \\\\ \\frac{5\\pi}{6} + 2\\pi k \\end{array}\\right., k\\in \\mathbb{z}");
+//        latexList.add("\\operatorname { Lim }_{ x \\rightarrow 0 } \\frac { \\tan 5 x } { \\tan 2 \\pi x }");
+//        latexList.add("\\operatorname * { Lim }_{ x \\rightarrow 0 } \\frac { \\tan 5 x } { \\tan 2 \\pi x }");
+//        latexList.add("\\sum_{123}^{456} ");
+//        latexList.add("\\lim_{x \\to \\infty}");
+//        latexList.add(" {\\textstyle \\sum_{1}^{2}} ");
 //        latexList.add("\\log _ { 2 } 2 ^ { 5 }");
 //        latexList.add("x_3");
 //        latexList.add("\\sqrt{5}");

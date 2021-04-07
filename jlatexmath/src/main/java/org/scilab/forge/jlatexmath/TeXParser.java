@@ -1215,7 +1215,27 @@ public class TeXParser {
         if ("cr".equals(com) && pos < len && parseString.charAt(pos) == ' ') {
             pos++;
         }
-
+        if("operatorname".equals(com)){
+            int tmp = pos;
+            loop:while (tmp < len){
+                ch = parseString.charAt(tmp);
+                switch (ch){
+                    case ' ': {
+                        tmp++;
+                        continue;
+                    }
+                    case '*': {
+                        tmp++;
+                        pos = tmp;
+                        com = "operatorname*";
+                        break loop;
+                    }
+                    default: {
+                        break loop;
+                    }
+                }
+            }
+        }
         return com;
     }
 
@@ -1414,7 +1434,7 @@ public class TeXParser {
     }
 
     /** Test the validity of a character in a command. It must contains only alpha characters and eventually a @ if makeAtletter activated
-     * @param com the command's name
+     * @param ch the command's name
      * @return the validity of the name
      */
     public final boolean isValidCharacterInCommand(char ch) {

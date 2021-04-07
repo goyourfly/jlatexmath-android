@@ -82,6 +82,7 @@ public class PredefMacros {
         NewEnvironmentMacro.addNewEnvironment("math", "\\(", "\\)", 0);
         NewEnvironmentMacro.addNewEnvironment("displaymath", "\\[", "\\]", 0);
         NewCommandMacro.addNewCommand("operatorname", "\\mathop{\\mathrm{#1}}\\nolimits ", 1);
+        NewCommandMacro.addNewCommand("operatorname*", "\\mathop{\\mathrm{#1}}\\limits ", 1);
         NewCommandMacro.addNewCommand("DeclareMathOperator", "\\newcommand{#1}{\\mathop{\\mathrm{#2}}\\nolimits}", 2);
         NewCommandMacro.addNewCommand("substack", "{\\scriptstyle\\begin{array}{c}#1\\end{array}}", 1);
         NewCommandMacro.addNewCommand("dfrac", "\\genfrac{}{}{}{}{#1}{#2}", 2);
