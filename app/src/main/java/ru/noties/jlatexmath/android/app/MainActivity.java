@@ -41,7 +41,7 @@ public class MainActivity extends Activity {
 
 //        setContentView(R.layout.activity_main);
 
-        List<String> latexList = new ArrayList<>();
+        final List<String> latexList = new ArrayList<>();
 
 //        String latex = "\\begin{array}{cc}";
 //        latex += "\\fbox{\\text{您好A framed box with \\textdbend}}&\\shadowbox{\\text{A shadowed box}}\\cr";
@@ -120,7 +120,7 @@ public class MainActivity extends Activity {
 //        latex += "\\end{array}";
 //        latexList.add(latex);
 //
-        ViewGroup linearLayout = findViewById(R.id.container);
+        final ViewGroup linearLayout = findViewById(R.id.container);
         linearLayout.removeAllViews();
 //
 //        latexList.add("\\prod _ { k = 1 } ^ { 4 } ( k + 2 )");
@@ -142,6 +142,8 @@ public class MainActivity extends Activity {
 //        latexList.add("\\log _ { 2 } 2 ^ { 5 }");
 //        latexList.add("x_3");
 //        latexList.add("\\sqrt{5}");
+        latexList.add("\\sum _ { k = 0 } ^ { 3 } 2 k =");
+        latexList.add("\\int\\limits_{a} ^ {b}");
 
         for (String str : latexList){
             JLatexMathView view = new JLatexMathView(this);
@@ -151,6 +153,19 @@ public class MainActivity extends Activity {
             view.setLatex(str);
         }
         linearLayout.requestLayout();
+        linearLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                linearLayout.removeAllViews();
+                for (String str : latexList){
+                    JLatexMathView view = new JLatexMathView(MainActivity.this);
+                    view.textSize(18*5);
+                    view.textColor(Color.BLACK);
+                    linearLayout.addView(view);
+                    view.setLatex(str);
+                }
+            }
+        });
 
 //final JLatexMathDrawable drawable = JLatexMathDrawable.builder(latex)
 //        .textSize(70)

@@ -789,6 +789,7 @@ public class TeXParser {
         Atom second = null;
         char s = '\0';
 
+        skipWhiteSpace();
         if (pos < len)
             s = parseString.charAt(pos);
 
